@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-sanitize.js"></script>
+    <script src="select.js"></script>
+    <script src="demo.js"></script>
+</head>
+
+<body ng-controller="DemoCtrl">
+
+    <button class="btn btn-default btn-xs" ng-click="enable()">Activer ui-select</button>
+    <button class="btn btn-default btn-xs" ng-click="disable()">Désactiver ui-select</button>
+    <button class="btn btn-default btn-xs" ng-click="clear()">Effacer la sélection</button>
+    <button class="btn btn-default btn-xs" ng-click="reset()">Réinitialiser</button>
+
+
+    <ui-select multiple ng-model="multipleDemo.colors" ng-disabled="disabled" style="width: 300px;">
+        <ui-select-match placeholder="{{placeholderText}}">{{$item}}</ui-select-match>
+        <ui-select-choices class="mtf-list" repeat="color in availableColors | filter:$select.search">
+            {{color}}
+        </ui-select-choices>
+    </ui-select>
+    <p>Selected: {{multipleDemo.colors}}</p>
+
+
+</body>
+
+</html>
